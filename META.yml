@@ -1,0 +1,15 @@
+--- #YAML:1.0
+name:                Log-Dispatch-MacGrowl
+version:             0.01
+abstract:            Log messages via Growl
+license:             ~
+generated_by:        ExtUtils::MakeMaker version 6.31
+distribution_type:   module
+requires:     
+    Log::Dispatch:                 0.01
+    Mac::Growl:                    0.01
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - Ryo Okamoto <ryo at aquahill dot net>
