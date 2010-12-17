@@ -1,15 +1,32 @@
---- #YAML:1.0
-name:                Log-Dispatch-MacGrowl
-version:             0.01
-abstract:            Log messages via Growl
-license:             ~
-generated_by:        ExtUtils::MakeMaker version 6.31
-distribution_type:   module
-requires:     
-    Log::Dispatch:                 0.01
-    Mac::Growl:                    0.01
-meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
-    version: 1.2
+---
+abstract: 'Log messages via Growl'
 author:
-    - Ryo Okamoto <ryo at aquahill dot net>
+  - 'Ryo Okamoto <ryo at aquahill dot net>'
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3607'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Log-Dispatch-MacGrowl
+provides:
+  Log::Dispatch::MacGrowl:
+    file: lib/Log/Dispatch/MacGrowl.pm
+    version: 0.02
+  Log::Dispatch::MacGrowl::Cocoa:
+    file: lib/Log/Dispatch/MacGrowl/Cocoa.pm
+    version: 0.01
+  Log::Dispatch::MacGrowl::Mac:
+    file: lib/Log/Dispatch/MacGrowl/Mac.pm
+    version: 0.01
+recommends:
+  Cocoa::Growl: 0.03
+requires:
+  Log::Dispatch: 0
+  Mac::Growl: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.02

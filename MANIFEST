@@ -1,11 +1,17 @@
+Build.PL
 Changes
+lib/Log/Dispatch/MacGrowl.pm
+lib/Log/Dispatch/MacGrowl/Cocoa.pm
+lib/Log/Dispatch/MacGrowl/Mac.pm
 Makefile.PL
 MANIFEST
+META.yml
 README
-lib/Log/Dispatch/MacGrowl.pm
 t/01_load.t
 t/02_prepare.t
 t/03_log.t
-t/98_perl-critic.t
-t/99_pod-coverage.t
-META.yml                                 Module meta-data (added by MakeMaker)
+xt/95_perl-critic.t
+xt/97_pod.t
+xt/98_pod-spelling.t
+xt/99_pod-coverage.t
+xt/perlcriticrc

@@ -1,19 +1,25 @@
-#
-# $Id: MacGrowl.pm 3 2007-04-15 05:57:29Z ryo $
+# 
 
 package Log::Dispatch::MacGrowl;
 
 use strict;
 use 5.005;
-use vars qw($VERSION);
-use Log::Dispatch::Output;
+use vars qw($VERSION @ISA);
 use base qw(Log::Dispatch::Output);
 use File::Basename ();
-use Mac::Growl;
 use Params::Validate qw(validate SCALAR BOOLEAN);
 Params::Validate::validation_options( allow_extra => 1 );
 
-$VERSION = '0.01';
+$VERSION = '0.02';
+
+BEGIN {
+	if( eval "use Cocoa::Growl; 1" ){
+		eval q{ use base "Log::Dispatch::MacGrowl::Cocoa" };
+	}
+	else{
+		eval q{ use base "Log::Dispatch::MacGrowl::Mac" };
+	}
+}
 
 sub new {
     my $param = shift;
@@ -67,21 +73,6 @@ sub _init {
     return $self;
 }
 
-sub log_message {
-    my $self = shift;
-    my %p = @_;
-
-    Mac::Growl::PostNotification( $self->{app_name}, $self->_notification_name, $self->{title}, $p{message},
-	$self->{sticky}, $self->{priority}, $self->{icon_file} );
-}
-
-sub _set_global {
-    my $self = shift;
-
-    my $global = [ $self->_notification_name ];
-    Mac::Growl::RegisterNotifications( $self->{app_name}, $global, $global );
-}
-
 sub _notification_name { "New Message" }
 
 1;
@@ -120,6 +111,8 @@ This module allows you to pass messages to Growl using Mac::Growl.
 
 This method takes a hash of parameters.  The following options are acceptable.
 
+=back
+
 =over 8
 
 =item * name ($)
@@ -133,7 +126,7 @@ Log::Dispatch documentation for more information. Required.
 
 =item * max_level ($)
 
-The maximum logging level this obejct will accept. See the
+The maximum logging level this object will accept. See the
 Log::Dispatch documentation for more information. This is not
 required. By default the maximum is the highest possible level (which
 means functionally that the object has no maximum).
@@ -165,17 +158,32 @@ By default, nothing will be passed.
 
 =back
 
+=over
+
 =item * log_message( message => $ )
 
 Sends a message to the appropriate output. Generally this shouldn't
 be called directly but should be called through the C<log()> method
 (in Log::Dispatch::Output).
 
+=back
+
+=head1 SEE ALSO
+
+Log::Dispatch::DesktopNotification
+
 =head1 DEPENDENCY
 
-Log::Dispatch, Mac::Growl
+Log::Dispatch, Mac::Growl or Cocoa::Growl
 
 =head1 AUTHOR
 
-Ryo Okamoto <ryo at aquahill dot net>
+Ryo Okamoto C<< <ryo at aquahill dot net> >>
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2007-2010 Ryo Okamoto, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
