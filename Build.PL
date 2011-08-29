@@ -1,5 +1,4 @@
 #
-# $Id$
 
 use strict;
 use warnings;
@@ -18,10 +17,11 @@ my $builder = Module::Build->new(
     },
     requires => {
 	'Log::Dispatch' => 0,
-	'Mac::Growl' => 0,
+	'Cocoa::Growl' => 0.03,
     },
     recommends => {
-	'Cocoa::Growl' => 0.03,
+	'Growl::Tiny' => '0.0.2',
+#	'Mac::Growl' => 0,
     },
     add_to_cleanup => [ 'Log-Dispatch-MacGrowl-*' ],
     create_makefile_pl => 'traditional',

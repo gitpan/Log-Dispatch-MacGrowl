@@ -3,6 +3,7 @@ Changes
 lib/Log/Dispatch/MacGrowl.pm
 lib/Log/Dispatch/MacGrowl/Cocoa.pm
 lib/Log/Dispatch/MacGrowl/Mac.pm
+lib/Log/Dispatch/MacGrowl/Tiny.pm
 Makefile.PL
 MANIFEST
 META.yml
@@ -15,3 +16,4 @@ xt/97_pod.t
 xt/98_pod-spelling.t
 xt/99_pod-coverage.t
 xt/perlcriticrc
+META.json

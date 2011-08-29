@@ -5,8 +5,9 @@ author:
 build_requires:
   Test::More: 0
 configure_requires:
-  Module::Build: 0.36
-generated_by: 'Module::Build version 0.3607'
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110930'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -15,18 +16,21 @@ name: Log-Dispatch-MacGrowl
 provides:
   Log::Dispatch::MacGrowl:
     file: lib/Log/Dispatch/MacGrowl.pm
-    version: 0.02
+    version: 0.03
   Log::Dispatch::MacGrowl::Cocoa:
     file: lib/Log/Dispatch/MacGrowl/Cocoa.pm
     version: 0.01
   Log::Dispatch::MacGrowl::Mac:
     file: lib/Log/Dispatch/MacGrowl/Mac.pm
     version: 0.01
+  Log::Dispatch::MacGrowl::Tiny:
+    file: lib/Log/Dispatch/MacGrowl/Tiny.pm
+    version: 0.01
 recommends:
-  Cocoa::Growl: 0.03
+  Growl::Tiny: v0.0.2
 requires:
+  Cocoa::Growl: 0.03
   Log::Dispatch: 0
-  Mac::Growl: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03
