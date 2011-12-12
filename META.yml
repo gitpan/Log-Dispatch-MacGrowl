@@ -16,7 +16,7 @@ name: Log-Dispatch-MacGrowl
 provides:
   Log::Dispatch::MacGrowl:
     file: lib/Log/Dispatch/MacGrowl.pm
-    version: 0.03
+    version: 0.04
   Log::Dispatch::MacGrowl::Cocoa:
     file: lib/Log/Dispatch/MacGrowl/Cocoa.pm
     version: 0.01
@@ -33,4 +33,4 @@ requires:
   Log::Dispatch: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.03
+version: 0.04

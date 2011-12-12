@@ -37,7 +37,7 @@
    "provides" : {
       "Log::Dispatch::MacGrowl" : {
          "file" : "lib/Log/Dispatch/MacGrowl.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       },
       "Log::Dispatch::MacGrowl::Cocoa" : {
          "file" : "lib/Log/Dispatch/MacGrowl/Cocoa.pm",
@@ -58,5 +58,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
